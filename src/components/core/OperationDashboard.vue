@@ -95,10 +95,9 @@ const labelCol = { style: { width: '150px' } };
       :lg="{ span: 18 }"
     >
       <a-card title="End-to-End Fabric Quality Inspection" class="w-full">
-           <a-table :columns="columns" :data-source="dataSource" bordered>
+           <a-table :pagination="false" :columns="columns" :data-source="dataSource" bordered>
             
-           </a-table>
-           
+           </a-table> 
       </a-card>
     </a-col>
   </a-row>
