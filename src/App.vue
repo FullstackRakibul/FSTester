@@ -26,7 +26,7 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-content
-        :style="{ margin: '24px 16px', padding: '24px', background: '#fff', overflow: 'auto'}"
+        :style="{ margin: '24px 16px', padding: '12px', background: '#fff', overflow: 'auto'}"
       >
         <div style="padding: 10px; min-height:fit-content;">
           <OperationDashboard/>
@@ -43,7 +43,6 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons-vue';
-import HelloWorld from './components/HelloWorld.vue';
 import OperationDashboard from './components/core/OperationDashboard.vue';
 
 const selectedKeys = ref<string[]>(['1']);
