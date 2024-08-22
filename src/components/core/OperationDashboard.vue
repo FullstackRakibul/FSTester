@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {  ref, render } from 'vue';
+import {  ref } from 'vue';
 const value2 = ref<string>('');
 
 const handleChange = (value: string) => {
