@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {  ref } from 'vue';
+import {  ref, render } from 'vue';
 const value2 = ref<string>('');
 
 const handleChange = (value: string) => {
@@ -7,29 +7,32 @@ const handleChange = (value: string) => {
 };
 const value = ref([]);
 const options = [...Array(25)].map((_, i) => ({
-  value: (i + 10).toString(36) + (i + 1),
+  value: `কাপড় টাইপ -`+(i + 10).toString() + (i + 1),
 }));
 
 
 const columns = [
   {
-    title: 'Item Name',
+    title: 'ধরনের নাম',
     dataIndex: 'name',
     width: '30%',
   },
   {
-    title: 'Size',
+    title: 'মাপ',
     dataIndex: 'size',
     width: '15%',
   },
   {
-    title: 'Detaisl',
+    title: 'মন্তব্য ও বর্ণনা',
     dataIndex: 'details',
-    width: '40%',
+    width: '40%', 
   },
   {
-    title: 'operation',
+    title: 'অপারেশন',
     dataIndex: 'operation',
+    render:[
+
+    ]
   },
 ];
 
@@ -43,9 +46,9 @@ const data: DataItem[] = [];
 for (let i = 0; i < 9; i++) {
   data.push({
     key: i.toString(),
-    name: `Matt Fabric Type - ${i}`,
+    name: ` ম্যাট এর ফেব্রেকিল এর ধরম নাম্বার - ${i}`,
     size: 32,
-    details: `matt no. ${i}`,
+    details: ` ম্যাট নাম্বার . ${i}`,
   });
 }
 const dataSource = ref(data);
@@ -62,13 +65,19 @@ const labelCol = { style: { width: '150px' } };
       :md="{ span: 12 }"
       :lg="{ span: 6 }"
     >
-      <a-card title="Start An Fabric Inspection" class="w-full">
+      <a-card
+          title="ফ্যাব্রিক পরিদর্শন শুরু করুন"
+          class="w-full text-6xl"
+          style="font-family: 'Hind Siliguri', sans-serif;line-height: 1.5;font-weight: 350;"
+          :headStyle="{ backgroundColor: '#0D7C66', color: 'white' }"
+        >
         <div>
           <a-form
             :label-col="labelCol"
             :wrapper-col="wrapperCol"
             layout="horizontal"
             class="gap-12 space-y-4"
+            style="font-family: 'Hind Siliguri', sans-serif;"
           >
             <a-select
               v-model:value="value"
@@ -77,6 +86,7 @@ const labelCol = { style: { width: '150px' } };
               placeholder="Tags Mode"
               :options="options"
               @change="handleChange"
+              style="font-family: 'Hind Siliguri', sans-serif;"
             />
             <a-textarea
               v-model:value="value2"
@@ -94,8 +104,16 @@ const labelCol = { style: { width: '150px' } };
       :md="{ span: 12 }"
       :lg="{ span: 18 }"
     >
-      <a-card title="End-to-End Fabric Quality Inspection" class="w-full">
-           <a-table :pagination="false" :columns="columns" :data-source="dataSource" bordered>
+      <a-card 
+        title="ভিজ্যুয়াল পরিদর্শন এবং গ্রেডিং" 
+        class="w-full text-6xl"
+        style="font-family: 'Hind Siliguri', sans-serif;line-height: 1.5;font-weight: 350;"
+        :headStyle="{ backgroundColor: '#088395', color: 'white' }"
+      >
+           <a-table :pagination="false" :columns="columns"    :data-source="dataSource" bordered
+           
+           style="font-family: 'Hind Siliguri', sans-serif;"
+           >
             
            </a-table> 
       </a-card>

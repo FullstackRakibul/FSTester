@@ -11,16 +11,20 @@
       <div class="logo" />
       <a-menu v-model:selectedKeys="selectedKeys" mode="inline">
         <a-menu-item key="1">
-          <user-outlined />
-          <span>User</span>
+          <DotChartOutlined />
+          <span>checking and evaluation</span>
+        </a-menu-item>
+        <a-menu-item key="1">
+          <ExperimentOutlined />
+          <span>Create Inspection</span>
         </a-menu-item>
         <a-menu-item key="2">
-          <video-camera-outlined />
-          <span>Camera</span>
+          <AuditOutlined />
+          <span>Process Checking</span>
         </a-menu-item>
         <a-menu-item key="3">
-          <upload-outlined />
-          <span>Upload</span>
+          <ReconciliationOutlined />
+          <span>Quality Checking</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -39,9 +43,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  ExperimentOutlined,
+  AuditOutlined,
+  ReconciliationOutlined,
+  DotChartOutlined
 } from '@ant-design/icons-vue';
 import OperationDashboard from './components/core/OperationDashboard.vue';
 
@@ -49,7 +54,8 @@ const selectedKeys = ref<string[]>(['1']);
 const collapsed = ref<boolean>(true);
 </script>
 
-<style>
+<style scoped>
+
 /* Customize the logo section */
 .logo {
   height: 32px;
