@@ -36,6 +36,12 @@ const columns = [
   },
 ];
 
+const value12 = ref<string>('');
+const value13 = ref<string>('');
+const value14 = ref<string>('');
+const value7 = ref<string>('input content');
+const value8 = ref<string | null>(null)
+
 interface DataItem {
   key: string;
   name: string;
@@ -52,7 +58,7 @@ for (let i = 0; i < 9; i++) {
   });
 }
 const dataSource = ref(data);
-const wrapperCol = { span: 14 };
+const wrapperCol = { span: 24 };
 const labelCol = { style: { width: '150px' } };
 </script>
 
@@ -65,37 +71,84 @@ const labelCol = { style: { width: '150px' } };
       :md="{ span: 12 }"
       :lg="{ span: 6 }"
     >
-      <a-card
-          title="ফ্যাব্রিক পরিদর্শন শুরু করুন"
-          class="w-full text-6xl"
-          style="font-family: 'Hind Siliguri', sans-serif;line-height: 1.5;font-weight: 350;"
-          :headStyle="{ backgroundColor: '#0D7C66', color: 'white' }"
-        >
-        <div>
-          <a-form
-            :label-col="labelCol"
-            :wrapper-col="wrapperCol"
-            layout="horizontal"
-            class="gap-12 space-y-4"
+  <a-card
+    title="ফ্যাব্রিক পরিদর্শন শুরু করুন"
+    class="w-full text-6xl"
+    style="font-family: 'Hind Siliguri', sans-serif; line-height: 1.5; font-weight: 350;"
+    :headStyle="{ backgroundColor: '#0D7C66', color: 'white' }"
+  >
+    <div>
+      <a-form
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
+        layout="horizontal"
+        class="gap-12 space-y-4"
+        style="font-family: 'Hind Siliguri', sans-serif;"
+      >
+        <!-- Form Items -->
+        <a-form-item class="w-full">
+          <a-select
+            v-model:value="value"
+            mode="tags"
+            class="w-full"
+            placeholder="ট্যাগ মোড"
+            :options="options"
+            @change="handleChange"
             style="font-family: 'Hind Siliguri', sans-serif;"
-          >
-            <a-select
-              v-model:value="value"
-              mode="tags"
-              class="w-full"
-              placeholder="Tags Mode"
-              :options="options"
-              @change="handleChange"
-              style="font-family: 'Hind Siliguri', sans-serif;"
-            />
+          />
+        </a-form-item>
+        
+        <a-form-item class="w-full">
+          <a-input-group compact class="w-full">
             <a-textarea
               v-model:value="value2"
-              placeholder="Autosize height with minimum and maximum number of lines"
+              placeholder="সংক্ষিপ্ত বিবরণী লিখুন ..."
               :auto-size="{ minRows: 2, maxRows: 5 }"
+              class="w-full"
             />
-          </a-form>
-        </div>
-      </a-card>
+          </a-input-group>
+        </a-form-item>
+        
+        <a-form-item class="w-full">
+          <a-input-group compact class="w-full">
+            <a-input
+              v-model:value="value12"
+              style="width: 40%; text-align: center; font-family: 'Hind Siliguri', sans-serif;"
+              placeholder="দৈর্ঘ্য"
+            />
+            <a-input
+              v-model:value="value13"
+              class="site-input-split"
+              style="width: 20%; border-left: 0; pointer-events: none; font-family: 'Hind Siliguri', sans-serif;"
+              placeholder="~"
+              disabled
+            />
+            <a-input
+              v-model:value="value14"
+              class="site-input-right"
+              style="width: 40%; text-align: center; font-family: 'Hind Siliguri', sans-serif;"
+              placeholder="প্রস্থ"
+            />
+          </a-input-group>
+        </a-form-item>
+        
+        <a-form-item class="w-full">
+          <a-input-group compact class="w-full">
+            <a-date-picker v-model:value="value8" style="width: 100%; font-family: 'Hind Siliguri', sans-serif;" />
+          </a-input-group>
+        </a-form-item>
+        
+        <a-form-item class="w-full">
+          <a-button type="primary" html-type="submit" class="w-full 
+          login-form-button"
+           style="font-family: 'Hind Siliguri', sans-serif;background-color: #0D7C66;"
+          >
+            প্রক্রিয়া শুরু করুন 
+          </a-button>
+        </a-form-item>
+      </a-form>
+    </div>
+  </a-card>
     </a-col>
 
     <a-col

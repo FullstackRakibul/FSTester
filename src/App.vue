@@ -8,21 +8,26 @@
       width="200"
      style="background-color: white;"
     >
-      <div class="logo" />
+      <div class="logo" >
+        <a-image
+        :width="45"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWm2-J1ZpsiXxwlb4EV6Mwch_Ikeb8joz8Sw&s"
+        />
+      </div>
       <a-menu v-model:selectedKeys="selectedKeys" mode="inline">
         <a-menu-item key="1">
           <DotChartOutlined />
           <span>checking and evaluation</span>
         </a-menu-item>
-        <a-menu-item key="1">
+        <a-menu-item key="2">
           <ExperimentOutlined />
           <span>Create Inspection</span>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="3">
           <AuditOutlined />
           <span>Process Checking</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="4">
           <ReconciliationOutlined />
           <span>Quality Checking</span>
         </a-menu-item>
@@ -41,6 +46,7 @@
 </template>
 
 <script lang="ts" setup>
+import './app.less'
 import { ref } from 'vue';
 import {
   ExperimentOutlined,
