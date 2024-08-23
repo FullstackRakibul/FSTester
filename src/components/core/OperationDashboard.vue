@@ -39,7 +39,6 @@ const columns = [
 const value12 = ref<string>('');
 const value13 = ref<string>('');
 const value14 = ref<string>('');
-const value7 = ref<string>('input content');
 const value8 = ref<string | null>(null)
 
 interface DataItem {
